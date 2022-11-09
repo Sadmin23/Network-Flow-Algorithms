@@ -80,7 +80,7 @@ int main()
 {
     init();
 
-    freopen("input.txt", "r", stdin);
+    freopen("A.txt", "r", stdin);
 
     int n, m;
     cin >> n >> m;
