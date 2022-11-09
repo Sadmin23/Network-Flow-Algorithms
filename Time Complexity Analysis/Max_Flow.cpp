@@ -155,7 +155,7 @@ int main()
 {
     init();
 
-    freopen("input.txt", "r", stdin);
+    freopen("B.txt", "r", stdin);
 
     int n, m;
     cin >> n >> m;
@@ -174,8 +174,17 @@ int main()
         cap2[x][y] = z;
     }
 
-    cout << maxflow_EK(0, n - 1) << "\n";
-    cout << maxflow_FF(0, n - 1) << "\n";
+    auto st = chrono::high_resolution_clock::now();
+    cout << "Edmonds Karp:\n\nMax Flow: " << maxflow_EK(0, n - 1) << "\n";
+    auto ed = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(ed - st);
+    cout << "Time: " << duration.count() << " microseconds\n\n\n";
+
+    auto st1 = chrono::high_resolution_clock::now();
+    cout << "Ford Fulkersion:\n\nMax Flow: " << maxflow_FF(0, n - 1) << "\n";
+    auto ed1 = chrono::high_resolution_clock::now();
+    auto duration1 = chrono::duration_cast<chrono::microseconds>(ed1 - st1);
+    cout << "Time: " << duration1.count() << " microseconds\n\n";
 
     return 0;
 }
